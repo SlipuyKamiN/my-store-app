@@ -3,7 +3,7 @@ import {
   FormInput,
   FormInputLabel,
   SubmitButton,
-  ErrMessage,
+  // ErrMessage,
 } from './OrderForm.styled';
 import { nanoid } from 'nanoid';
 import { useForm } from 'react-hook-form';
@@ -40,8 +40,8 @@ export const OrderForm = ({ isShoppingCartEmpty }) => {
   const {
     register,
     handleSubmit,
-    reset,
-    formState: { errors },
+    // reset,
+    // formState: { errors },
   } = useForm({
     resolver: yupResolver(validationSchema),
   });

@@ -1,17 +1,41 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
+import {
+  persistStore,
+  persistReducer,
+  FLUSH,
+  REHYDRATE,
+  PAUSE,
+  PERSIST,
+  PURGE,
+  REGISTER,
+} from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
 import { productsApi } from './productsSlice';
 import { shoppingCartReducer } from './shoppingCartSlice';
+
+const persistConfig = {
+  key: 'shoppingCart',
+  storage,
+  whitelist: ['shoppingCart'],
+};
 
 const rootReducer = combineReducers({
   [productsApi.reducerPath]: productsApi.reducer,
   shoppingCart: shoppingCartReducer,
 });
+const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 export const store = configureStore({
-  reducer: rootReducer,
+  reducer: persistedReducer,
   middleware: getDefaultMiddleware =>
-    getDefaultMiddleware().concat(productsApi.middleware),
+    getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+      },
+    }).concat(productsApi.middleware),
 });
+
+export const persistor = persistStore(store);
 
 // import { combineReducers, configureStore } from '@reduxjs/toolkit';
 // import {
@@ -44,11 +68,11 @@ export const store = configureStore({
 // export const store = configureStore({
 //   reducer: persistedReducer,
 //   middleware: getDefaultMiddleware =>
-//     getDefaultMiddleware({
-//       serializableCheck: {
-//         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
-//       },
-//     }),
+// getDefaultMiddleware({
+//   serializableCheck: {
+//     ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+//   },
+// }),
 // });
 
 // export const persistor = persistStore(store);

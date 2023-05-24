@@ -10,7 +10,7 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 
-export const OrderForm = ({ isShoppingCartEmpty }) => {
+export const OrderForm = ({ isShoppingCartEmpty, onFormSubmit }) => {
   const nameID = nanoid();
   const numberID = nanoid();
   const emailID = nanoid();
@@ -40,16 +40,20 @@ export const OrderForm = ({ isShoppingCartEmpty }) => {
   const {
     register,
     handleSubmit,
-    // reset,
+    reset,
     // formState: { errors },
   } = useForm({
     resolver: yupResolver(validationSchema),
   });
 
-  const handleFormSubmit = () => {};
-
   return (
-    <AppForm autoComplete="off" onSubmit={handleSubmit(handleFormSubmit)}>
+    <AppForm
+      autoComplete="off"
+      onSubmit={handleSubmit(data => {
+        reset({ name: '', number: '', address: '', email: '' });
+        onFormSubmit(data);
+      })}
+    >
       <FormInputLabel htmlFor={nameID}>Name</FormInputLabel>
       <FormInput type="text" {...register('name')} id={nameID} />
       {/* {errors.name && <ErrMessage>{errors.name.message}</ErrMessage>} */}

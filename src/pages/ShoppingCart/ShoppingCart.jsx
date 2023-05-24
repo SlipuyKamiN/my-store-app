@@ -5,20 +5,31 @@ import {
   TotalPrice,
   TotalPriceWrapper,
 } from './ShoppingCart.styled';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { useCreateOrderMutation } from 'redux/ordersSlice';
 
 const ShoppingCart = () => {
-  const shoppingCartProducts = useSelector(state => state.shoppingCart);
+  const dispatch = useDispatch();
+  const [createOrder] = useCreateOrderMutation();
+  const orderItems = useSelector(state => state.shoppingCart);
 
-  const isShoppingCartEmpty = shoppingCartProducts.length === 0;
+  const isShoppingCartEmpty = orderItems.length === 0;
 
-  const totalPrice = shoppingCartProducts.reduce(
+  const totalPrice = orderItems.reduce(
     (total, product) => total + Number(product.price * product.quantity),
     0
   );
+
+  const handleCreateOrder = customerData => {
+    dispatch(createOrder({ customerData, orderItems, totalPrice }));
+  };
+
   return (
     <ShoppingCartWrapper>
-      <OrderForm isShoppingCartEmpty={isShoppingCartEmpty} />
+      <OrderForm
+        isShoppingCartEmpty={isShoppingCartEmpty}
+        onFormSubmit={handleCreateOrder}
+      />
       {!isShoppingCartEmpty && <ShoppingCartList />}
       <TotalPriceWrapper>
         <TotalPrice>Total price: {Math.round(totalPrice)} ₴</TotalPrice>

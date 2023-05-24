@@ -5,11 +5,10 @@ import {
   TotalPrice,
   TotalPriceWrapper,
 } from './ShoppingCart.styled';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { useCreateOrderMutation } from 'redux/ordersSlice';
 
 const ShoppingCart = () => {
-  const dispatch = useDispatch();
   const [createOrder] = useCreateOrderMutation();
   const orderItems = useSelector(state => state.shoppingCart);
 
@@ -21,7 +20,7 @@ const ShoppingCart = () => {
   );
 
   const handleCreateOrder = customerData => {
-    dispatch(createOrder({ customerData, orderItems, totalPrice }));
+    createOrder({ customerData, orderItems, totalPrice });
   };
 
   return (

@@ -21,14 +21,15 @@ export const ProductItem = ({ product }) => {
 
     dispatch(addProduct(product));
   };
+  const { image, title, description, price } = product;
 
   return (
     <ProductCard>
-      <img src={product.image} alt={product.title} width="100%" />
-      <CardTitle>{product.title}</CardTitle>
-      <CardDescription>{product.description}</CardDescription>
+      <img src={image} alt={title} width="100%" />
+      <CardTitle>{title}</CardTitle>
+      <CardDescription>{description}</CardDescription>
       <PurchaseWrapper>
-        <CardPrice>Price: {product.price}</CardPrice>
+        <CardPrice>Price: {Math.round(price)} ₴</CardPrice>
         <AddToCartButton
           onClick={() => {
             handleAddProduct(product);

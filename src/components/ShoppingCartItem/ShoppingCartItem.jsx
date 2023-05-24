@@ -17,7 +17,7 @@ export const ShoppingCartItem = ({ product }) => {
   const { image, title, id, quantity, description, price } = product;
 
   const isProductOneInCart = quantity === 1;
-  const productTotalPrice = quantity * price;
+  const productTotalPrice = Math.round(quantity * price);
 
   return (
     <ProductCard>
@@ -41,7 +41,7 @@ export const ShoppingCartItem = ({ product }) => {
         -
       </ChangeQuantityButton>
       <PurchaseWrapper>
-        <CardPrice>Price: {productTotalPrice}</CardPrice>
+        <CardPrice>Price: {productTotalPrice} ₴</CardPrice>
         <AddToCartButton
           onClick={() => {
             dispatch(deleteProduct(id));

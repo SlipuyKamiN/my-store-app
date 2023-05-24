@@ -8,18 +8,20 @@ import {
 import { useSelector } from 'react-redux';
 
 const ShoppingCart = () => {
-  const products = useSelector(state => state.shoppingCart);
+  const shoppingCartProducts = useSelector(state => state.shoppingCart);
 
-  const totalPrice = products.reduce(
+  const isShoppingCartEmpty = shoppingCartProducts.length === 0;
+
+  const totalPrice = shoppingCartProducts.reduce(
     (total, product) => total + Number(product.price * product.quantity),
     0
   );
   return (
     <ShoppingCartWrapper>
-      <OrderForm />
-      <ShoppingCartList />
+      <OrderForm isShoppingCartEmpty={isShoppingCartEmpty} />
+      {!isShoppingCartEmpty && <ShoppingCartList />}
       <TotalPriceWrapper>
-        <TotalPrice>Total price: {Math.round(totalPrice)} $</TotalPrice>
+        <TotalPrice>Total price: {Math.round(totalPrice)} ₴</TotalPrice>
       </TotalPriceWrapper>
     </ShoppingCartWrapper>
   );

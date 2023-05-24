@@ -10,7 +10,7 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 
-export const OrderForm = () => {
+export const OrderForm = ({ isShoppingCartEmpty }) => {
   const nameID = nanoid();
   const numberID = nanoid();
   const emailID = nanoid();
@@ -62,7 +62,9 @@ export const OrderForm = () => {
       <FormInputLabel htmlFor={addressID}>address</FormInputLabel>
       <FormInput type="text" {...register('address')} id={addressID} />
       {/* {errors.address && <ErrMessage>{errors.address.message}</ErrMessage>} */}
-      <SubmitButton type="submit">'Submit'</SubmitButton>
+      <SubmitButton type="submit" disabled={isShoppingCartEmpty}>
+        'Submit'
+      </SubmitButton>
     </AppForm>
   );
 };

@@ -7,7 +7,7 @@ export const productsApi = createApi({
   }),
   tagTypes: ['products'],
   endpoints: builder => ({
-    getCategories: builder.query({
+    getShops: builder.query({
       query: () => ({ url: '/products/categories' }),
       providesTags: ['products'],
     }),
@@ -17,9 +17,9 @@ export const productsApi = createApi({
       }),
       providesTags: ['products'],
     }),
-    getProductsByCategory: builder.query({
-      query: categoryName => ({
-        url: `/products/category/${categoryName}`,
+    getProductsByShop: builder.query({
+      query: shopName => ({
+        url: `/products/category/${shopName}`,
       }),
       providesTags: ['products'],
     }),
@@ -27,7 +27,7 @@ export const productsApi = createApi({
 });
 
 export const {
-  useGetCategoriesQuery,
+  useGetShopsQuery,
   useGetAllProductsQuery,
-  useGetProductsByCategoryQuery,
+  useGetProductsByShopQuery,
 } = productsApi;

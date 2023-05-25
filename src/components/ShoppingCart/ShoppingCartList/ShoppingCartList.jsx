@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
 import { List } from './ShoppingCartList.styled';
-import { ShoppingCartItem } from 'components/ShoppingCartItem/ShoppingCartItem';
+import { ShoppingCartItem } from 'components/ShoppingCart/ShoppingCartItem/ShoppingCartItem';
 
 export const ShoppingCartList = () => {
   const products = useSelector(state => state.shoppingCart);

@@ -1,12 +1,12 @@
 import styled from '@emotion/styled';
 
 export const ProductCard = styled.li`
-  width: 280px;
   border-radius: 15px;
   padding: 15px;
   border: 1px solid black;
   overflow: hidden;
   margin-bottom: 10px;
+  width: 45%;
 `;
 
 export const CardTitle = styled.h3`

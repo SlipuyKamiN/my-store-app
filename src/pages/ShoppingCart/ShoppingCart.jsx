@@ -1,16 +1,19 @@
-import { OrderForm } from 'components/OrderForm/OrderForm';
-import { ShoppingCartList } from 'components/ShoppingCartList/ShoppingCartList';
+import { OrderForm } from 'components/ShoppingCart/OrderForm/OrderForm';
+import { ShoppingCartList } from 'components/ShoppingCart/ShoppingCartList/ShoppingCartList';
 import {
   ShoppingCartWrapper,
   TotalPrice,
   TotalPriceWrapper,
 } from './ShoppingCart.styled';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useCreateOrderMutation } from 'redux/ordersSlice';
+import { clearShoppingCart } from 'redux/shoppingCartSlice';
+import { getShoppingCart } from 'redux/selectors';
 
 const ShoppingCart = () => {
   const [createOrder] = useCreateOrderMutation();
-  const orderItems = useSelector(state => state.shoppingCart);
+  const dispatch = useDispatch();
+  const orderItems = useSelector(getShoppingCart);
 
   const isShoppingCartEmpty = orderItems.length === 0;
 
@@ -21,6 +24,7 @@ const ShoppingCart = () => {
 
   const handleCreateOrder = customerData => {
     createOrder({ customerData, orderItems, totalPrice });
+    dispatch(clearShoppingCart());
   };
 
   return (

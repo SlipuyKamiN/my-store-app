@@ -3,7 +3,7 @@ import {
   FormInput,
   FormInputLabel,
   SubmitButton,
-  // ErrMessage,
+  ErrMessage,
 } from './OrderForm.styled';
 import { nanoid } from 'nanoid';
 import { useForm } from 'react-hook-form';
@@ -41,7 +41,7 @@ export const OrderForm = ({ isShoppingCartEmpty, onFormSubmit }) => {
     register,
     handleSubmit,
     reset,
-    // formState: { errors },
+    formState: { errors },
   } = useForm({
     resolver: yupResolver(validationSchema),
   });
@@ -56,16 +56,16 @@ export const OrderForm = ({ isShoppingCartEmpty, onFormSubmit }) => {
     >
       <FormInputLabel htmlFor={nameID}>Name</FormInputLabel>
       <FormInput type="text" {...register('name')} id={nameID} />
-      {/* {errors.name && <ErrMessage>{errors.name.message}</ErrMessage>} */}
+      {errors.name && <ErrMessage>{errors.name.message}</ErrMessage>}
       <FormInputLabel htmlFor={numberID}>Number</FormInputLabel>
       <FormInput type="text" {...register('number')} id={numberID} />
-      {/* {errors.number && <ErrMessage>{errors.number.message}</ErrMessage>} */}
+      {errors.number && <ErrMessage>{errors.number.message}</ErrMessage>}
       <FormInputLabel htmlFor={emailID}>email</FormInputLabel>
       <FormInput type="text" {...register('email')} id={emailID} />
-      {/* {errors.email && <ErrMessage>{errors.email.message}</ErrMessage>} */}
+      {errors.email && <ErrMessage>{errors.email.message}</ErrMessage>}
       <FormInputLabel htmlFor={addressID}>address</FormInputLabel>
       <FormInput type="text" {...register('address')} id={addressID} />
-      {/* {errors.address && <ErrMessage>{errors.address.message}</ErrMessage>} */}
+      {errors.address && <ErrMessage>{errors.address.message}</ErrMessage>}
       <SubmitButton type="submit" disabled={isShoppingCartEmpty}>
         'Submit'
       </SubmitButton>

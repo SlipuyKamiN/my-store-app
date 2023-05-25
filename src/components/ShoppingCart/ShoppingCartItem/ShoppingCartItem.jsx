@@ -4,19 +4,17 @@ import {
   CardDescription,
   CardPrice,
   CardTitle,
-  ChangeQuantityButton,
   ProductCard,
   PurchaseWrapper,
-  QuantityCounter,
 } from './ShoppingCartItem.styled';
-import { changeQuantity, deleteProduct } from 'redux/shoppingCartSlice';
+import { deleteProduct } from 'redux/shoppingCartSlice';
+import { QuantityCounter } from '../QuantityCounter/QuantityCounter';
 
 export const ShoppingCartItem = ({ product }) => {
   const dispatch = useDispatch();
 
   const { image, title, id, quantity, description, price } = product;
 
-  const isProductOneInCart = quantity === 1;
   const productTotalPrice = Math.round(quantity * price);
 
   return (
@@ -24,22 +22,7 @@ export const ShoppingCartItem = ({ product }) => {
       <img src={image} alt={title} width="100%" />
       <CardTitle>{title}</CardTitle>
       <CardDescription>{description}</CardDescription>
-      <ChangeQuantityButton
-        onClick={() => {
-          dispatch(changeQuantity(id, 'increment'));
-        }}
-      >
-        +
-      </ChangeQuantityButton>
-      <QuantityCounter>{quantity}</QuantityCounter>
-      <ChangeQuantityButton
-        onClick={() => {
-          dispatch(changeQuantity(id, 'decrement'));
-        }}
-        disabled={isProductOneInCart}
-      >
-        -
-      </ChangeQuantityButton>
+      <QuantityCounter quantity={quantity} id={id} />
       <PurchaseWrapper>
         <CardPrice>Price: {productTotalPrice} ₴</CardPrice>
         <AddToCartButton

@@ -15,6 +15,6 @@ export const ListItem = styled.li`
   width: 100%;
 `;
 export const CategoryLink = styled(NavLink)`
-  text-transform: capitalize;
+  text-transform: uppercase;
   text-decoration: none;
 `;

@@ -1,41 +1,55 @@
 import { useDispatch, useSelector } from 'react-redux';
 import {
   AddToCartButton,
+  CardImage,
   CardDescription,
   CardPrice,
   CardTitle,
   ProductCard,
   PurchaseWrapper,
 } from './ProductItem.styled';
-import { addProduct, changeQuantity } from 'redux/shoppingCartSlice';
+import { addProduct, deleteProduct } from 'redux/shoppingCartSlice';
+import { getShoppingCart } from 'redux/selectors';
+import { useEffect, useState } from 'react';
 
 export const ProductItem = ({ product }) => {
   const dispatch = useDispatch();
-  const shoppingCart = useSelector(state => state.shoppingCart);
-  const handleAddProduct = product => {
+  const shoppingCart = useSelector(getShoppingCart);
+  const [isProductInCart, setIsProductInCart] = useState(false);
+
+  useEffect(() => {
     const isProductInCart = shoppingCart.find(({ id }) => id === product.id);
     if (isProductInCart) {
-      dispatch(changeQuantity(product.id, 'increment'));
+      setIsProductInCart(true);
+      return;
+    }
+    setIsProductInCart(false);
+  }, [shoppingCart, product.id]);
+
+  const handleButtonClick = product => {
+    if (isProductInCart) {
+      dispatch(deleteProduct(product.id));
       return;
     }
 
     dispatch(addProduct(product));
   };
+
   const { image, title, description, price } = product;
 
   return (
     <ProductCard>
-      <img src={image} alt={title} width="100%" />
+      <CardImage src={image} alt={title} />
       <CardTitle>{title}</CardTitle>
       <CardDescription>{description}</CardDescription>
       <PurchaseWrapper>
         <CardPrice>Price: {Math.round(price)} ₴</CardPrice>
         <AddToCartButton
           onClick={() => {
-            handleAddProduct(product);
+            handleButtonClick(product);
           }}
         >
-          Add to my cart
+          {isProductInCart ? 'Delete from my cart' : 'Add to my cart'}
         </AddToCartButton>
       </PurchaseWrapper>
     </ProductCard>

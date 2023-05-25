@@ -6,7 +6,12 @@ export const ProductCard = styled.li`
   border: 1px solid black;
   overflow: hidden;
   margin-bottom: 10px;
-  width: 45%;
+  display: flex;
+  gap: 15px;
+`;
+
+export const OrderItem = styled.li`
+  width: 20%;
 `;
 
 export const CardTitle = styled.h3`

@@ -1,26 +1,15 @@
-// import {
-//   useGetAllProductsQuery,
-//   useGetCategoriesQuery,
-//   useGetProductsByCategoryQuery,
-// } from 'redux/productsSlice';
-
-import { CategoriesList } from 'components/CategoriesList/CategoriesList';
+import { ShopsList } from 'components/StorePage/ShopsList/ShopsList';
 import { StoreWrapper } from './Store.styled';
 import { Outlet } from 'react-router-dom';
+import { Suspense } from 'react';
 
 const Store = () => {
-  // const { data: allProducts } = useGetAllProductsQuery();
-  // console.log(allProducts);
-  // const { data: allCategories } = useGetCategoriesQuery();
-  // console.log(allCategories);
-  // const { data: productsByCategory } =
-  //   useGetProductsByCategoryQuery('electronics');
-  // console.log(productsByCategory);
-
   return (
     <StoreWrapper>
-      <CategoriesList />
-      <Outlet />
+      <ShopsList />
+      <Suspense fallback={<div>Please wait...</div>}>
+        <Outlet />
+      </Suspense>
     </StoreWrapper>
   );
 };

@@ -28,30 +28,29 @@ const shoppingCartSlice = createSlice({
       reducer(state, action) {
         state = state.map(product => {
           if (product.id === action.payload.id) {
-            if (action.payload.type === 'increment') {
-              return {
-                ...product,
-                quantity: product.quantity + 1,
-              };
-            } else {
-              return {
-                ...product,
-                quantity: product.quantity - 1,
-              };
-            }
+            return {
+              ...product,
+              quantity: action.payload.counterValue,
+            };
           }
           return product;
         });
         return state;
       },
-      prepare(id, type) {
-        return { payload: { id, type } };
+      prepare(id, counterValue) {
+        return { payload: { id, counterValue } };
+      },
+    },
+    clearShoppingCart: {
+      reducer(state) {
+        state = [];
+        return state;
       },
     },
   },
 });
 
-export const { addProduct, deleteProduct, changeQuantity } =
+export const { addProduct, deleteProduct, changeQuantity, clearShoppingCart } =
   shoppingCartSlice.actions;
 
 export const shoppingCartReducer = shoppingCartSlice.reducer;

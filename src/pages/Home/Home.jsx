@@ -1,20 +1,12 @@
-import { CategoriesList } from 'components/CategoriesList/CategoriesList';
+import { ShopsList } from 'components/StorePage/ShopsList/ShopsList';
 import { StoreWrapper } from 'pages/Store/Store.styled';
 
-import { ProductsList } from 'components/ProductsList/ProductsList';
+import { ProductsList } from 'components/StorePage/ProductsList/ProductsList';
 
 const Home = () => {
-  // const { data: allProducts } = useGetAllProductsQuery();
-  // console.log(allProducts);
-  // const { data: allCategories } = useGetCategoriesQuery();
-  // console.log(allCategories);
-  // const { data: productsByCategory } =
-  //   useGetProductsByCategoryQuery('electronics');
-  // console.log(productsByCategory);
-
   return (
     <StoreWrapper>
-      <CategoriesList />
+      <ShopsList />
       <ProductsList />
     </StoreWrapper>
   );

@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/my-store-app/static/css/main.d6d99cc7.css",
-    "main.js": "/my-store-app/static/js/main.1b21cb72.js",
-    "static/js/544.154a3325.chunk.js": "/my-store-app/static/js/544.154a3325.chunk.js",
-    "static/js/135.26ab0e31.chunk.js": "/my-store-app/static/js/135.26ab0e31.chunk.js",
-    "static/js/451.652b4ecb.chunk.js": "/my-store-app/static/js/451.652b4ecb.chunk.js",
-    "static/js/914.4fe439f3.chunk.js": "/my-store-app/static/js/914.4fe439f3.chunk.js",
-    "static/js/487.fa1a422e.chunk.js": "/my-store-app/static/js/487.fa1a422e.chunk.js",
+    "main.css": "/my-store-app/static/css/main.e9b637d9.css",
+    "main.js": "/my-store-app/static/js/main.c614c974.js",
+    "static/js/544.460afcae.chunk.js": "/my-store-app/static/js/544.460afcae.chunk.js",
+    "static/js/135.4f7e1a6f.chunk.js": "/my-store-app/static/js/135.4f7e1a6f.chunk.js",
+    "static/js/451.83058181.chunk.js": "/my-store-app/static/js/451.83058181.chunk.js",
+    "static/js/914.03486887.chunk.js": "/my-store-app/static/js/914.03486887.chunk.js",
+    "static/js/487.58ec1ada.chunk.js": "/my-store-app/static/js/487.58ec1ada.chunk.js",
     "index.html": "/my-store-app/index.html",
-    "main.d6d99cc7.css.map": "/my-store-app/static/css/main.d6d99cc7.css.map",
-    "main.1b21cb72.js.map": "/my-store-app/static/js/main.1b21cb72.js.map",
-    "544.154a3325.chunk.js.map": "/my-store-app/static/js/544.154a3325.chunk.js.map",
-    "135.26ab0e31.chunk.js.map": "/my-store-app/static/js/135.26ab0e31.chunk.js.map",
-    "451.652b4ecb.chunk.js.map": "/my-store-app/static/js/451.652b4ecb.chunk.js.map",
-    "914.4fe439f3.chunk.js.map": "/my-store-app/static/js/914.4fe439f3.chunk.js.map",
-    "487.fa1a422e.chunk.js.map": "/my-store-app/static/js/487.fa1a422e.chunk.js.map"
+    "main.e9b637d9.css.map": "/my-store-app/static/css/main.e9b637d9.css.map",
+    "main.c614c974.js.map": "/my-store-app/static/js/main.c614c974.js.map",
+    "544.460afcae.chunk.js.map": "/my-store-app/static/js/544.460afcae.chunk.js.map",
+    "135.4f7e1a6f.chunk.js.map": "/my-store-app/static/js/135.4f7e1a6f.chunk.js.map",
+    "451.83058181.chunk.js.map": "/my-store-app/static/js/451.83058181.chunk.js.map",
+    "914.03486887.chunk.js.map": "/my-store-app/static/js/914.03486887.chunk.js.map",
+    "487.58ec1ada.chunk.js.map": "/my-store-app/static/js/487.58ec1ada.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.d6d99cc7.css",
-    "static/js/main.1b21cb72.js"
+    "static/css/main.e9b637d9.css",
+    "static/js/main.c614c974.js"
   ]
 }

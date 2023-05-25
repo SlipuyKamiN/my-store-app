@@ -15,6 +15,7 @@ export const List = styled.ul`
 `;
 
 export const EmptyListWrapper = styled.div`
+  padding: 40px;
   margin: auto;
   text-align: center;
 `;

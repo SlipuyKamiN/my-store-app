@@ -24,6 +24,7 @@ export const ItemsList = styled.ul`
 export const OrderItem = styled.li`
   position: relative;
   overflow: hidden;
+  border-radius: 15px;
 
   &:hover div {
     cursor: pointer;
@@ -32,12 +33,12 @@ export const OrderItem = styled.li`
 `;
 
 export const ItemImage = styled.img`
-  border-radius: 15px;
   width: 100px;
   height: 100px;
 `;
 
 export const CardTitle = styled.h3`
+  padding: 10px;
   font-size: 12px;
   width: 100px;
 `;
@@ -50,8 +51,7 @@ export const PurchaseWrapper = styled.div`
   align-items: center;
   width: 100px;
   padding: 15px;
-  border-radius: 15px;
-  font-size: 16px;
+  font-size: 12px;
   background-color: #000000cc;
   transform: translateY(-100%);
   transition: transform 250ms linear;
@@ -73,7 +73,7 @@ export const DateWrapper = styled.div`
   }
 `;
 
-export const OrderTotalPrice = styled.p`
+export const OrderTotalPrice = styled.span`
   font-size: 32px;
   color: #00d000;
   text-align: right;

@@ -34,7 +34,10 @@ export const OrderForm = ({ isShoppingCartEmpty, onFormSubmit }) => {
       .required(),
     email: yup
       .string()
-      .matches('[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$', 'Wrong email format')
+      .matches(
+        '[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$',
+        'Email may contain "@" and "." symbols'
+      )
       .required(),
   });
 
@@ -52,8 +55,8 @@ export const OrderForm = ({ isShoppingCartEmpty, onFormSubmit }) => {
       <AppForm
         autoComplete="off"
         onSubmit={handleSubmit(data => {
-          reset({ name: '', number: '', address: '', email: '' });
           onFormSubmit(data);
+          reset({ name: '', number: '', address: '', email: '' });
         })}
       >
         <FormInputLabel htmlFor={nameID}>Name</FormInputLabel>

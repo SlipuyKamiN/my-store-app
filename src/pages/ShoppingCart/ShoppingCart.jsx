@@ -11,6 +11,7 @@ import { clearShoppingCart } from 'redux/shoppingCartSlice';
 import { getShoppingCart } from 'redux/selectors';
 import { Info } from 'components/StorePage/ShopsList/ShopsList.styled';
 import { EmptyList } from 'components/ShoppingCart/ShoppingCartList/EmptyList';
+import { notification } from 'components/SharedLayout/notification';
 
 const ShoppingCart = () => {
   const [createOrder] = useCreateOrderMutation();
@@ -25,8 +26,21 @@ const ShoppingCart = () => {
   );
 
   const handleCreateOrder = customerData => {
-    createOrder({ customerData, orderItems, totalPrice });
-    dispatch(clearShoppingCart());
+    createOrder({ customerData, orderItems, totalPrice })
+      .then(response => {
+        if (response.error) {
+          throw new Error(response.error.data);
+        }
+        notification(
+          `${customerData.name}, your order is succesfully created`,
+          'success'
+        );
+        dispatch(clearShoppingCart());
+      })
+      .catch(error => {
+        console.warn(error);
+        notification();
+      });
   };
 
   return (

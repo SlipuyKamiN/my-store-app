@@ -8,18 +8,18 @@ export const productsApi = createApi({
   tagTypes: ['products'],
   endpoints: builder => ({
     getShops: builder.query({
-      query: () => ({ url: '/restaurants' }),
+      query: () => ({ url: 'restaurants' }),
       providesTags: ['products'],
     }),
     getAllProducts: builder.query({
       query: () => ({
-        url: `/restaurants/all`,
+        url: `restaurants/all`,
       }),
       providesTags: ['products'],
     }),
     getProductsByShop: builder.query({
       query: shopName => ({
-        url: `	/restaurants/${shopName}`,
+        url: `	restaurants/${shopName}`,
       }),
       providesTags: ['products'],
     }),

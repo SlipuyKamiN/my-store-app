@@ -10,6 +10,8 @@ import { Outlet } from 'react-router-dom';
 import { Suspense } from 'react';
 import imgPath from 'images/storeLogo.png';
 import { Loader } from 'components/StorePage/ProductsList/ProductsList.styled';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export const SharedLayout = () => {
   return (
@@ -45,6 +47,7 @@ export const SharedLayout = () => {
       <Suspense fallback={<Loader size="25px" />}>
         <Outlet />
       </Suspense>
+      <ToastContainer />
     </Container>
   );
 };

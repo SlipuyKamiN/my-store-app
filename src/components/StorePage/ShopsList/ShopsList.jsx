@@ -6,14 +6,20 @@ import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { getShoppingCart } from 'redux/selectors';
 import { SideBar } from 'pages/Store/Store.styled';
+import { notification } from 'components/SharedLayout/notification';
 
 export const ShopsList = () => {
-  const { data: allShops, isFetching } = useGetShopsQuery();
+  const { data: allShops, isFetching, isError } = useGetShopsQuery();
   const [availableShops, setAvailableShops] = useState([]);
   const shoppingCart = useSelector(getShoppingCart);
   const navigate = useNavigate();
 
   useEffect(() => {
+    if (isError) {
+      console.warn(isError.message);
+      notification();
+    }
+
     if (shoppingCart.length !== 0) {
       const selectedRestaurant = shoppingCart.find(
         ({ restaurant }) => restaurant
@@ -27,7 +33,7 @@ export const ShopsList = () => {
     }
 
     setAvailableShops(allShops || []);
-  }, [setAvailableShops, navigate, shoppingCart, allShops]);
+  }, [setAvailableShops, navigate, shoppingCart, allShops, isError]);
 
   return (
     <SideBar>
@@ -38,6 +44,7 @@ export const ShopsList = () => {
           </ListItem>
         )}
         {!isFetching &&
+          !isError &&
           availableShops.map(restaurantName => (
             <ListItem key={restaurantName}>
               <CategoryLink to={`store/${restaurantName.replaceAll(' ', '-')}`}>

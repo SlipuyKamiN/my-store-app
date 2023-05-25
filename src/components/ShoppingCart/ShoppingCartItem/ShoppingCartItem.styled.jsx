@@ -6,13 +6,18 @@ export const ProductCard = styled.li`
   display: flex;
   flex-direction: column;
   flex-shrink: 0;
-  width: 270px;
+  max-width: 100%;
   border-radius: 15px;
   border: 2px solid var(--brand-color);
   overflow: hidden;
   &:hover p {
     cursor: pointer;
     transform: translateY(0%);
+  }
+
+  @media screen and (min-width: 480px) {
+    max-width: none;
+    width: 270px;
   }
 `;
 

@@ -3,6 +3,11 @@ import styled from '@emotion/styled';
 export const ShoppingCartWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
+
+  @media screen and (max-width: 1280px) {
+    flex-direction: column;
+    justify-content: center;
+  }
 `;
 
 export const TotalPriceWrapper = styled.div`

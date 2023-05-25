@@ -14,12 +14,21 @@ export const ItemsList = styled.ul`
   display: flex;
   padding: 20px;
   gap: 20px;
+  @media screen and (max-width: 1280px) {
+    /* flex-direction: column; */
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 `;
 
 export const OrderItem = styled.li`
   position: relative;
   overflow: hidden;
   width: 20%;
+
+  @media screen and (max-width: 1280px) {
+    width: 40%;
+  }
 
   &:hover div {
     cursor: pointer;
@@ -64,6 +73,9 @@ export const DateWrapper = styled.div`
   width: 100%;
   padding: 20px;
   font-size: 24px;
+  @media screen and (max-width: 1280px) {
+    font-size: 16px;
+  }
 `;
 
 export const OrderTotalPrice = styled.p`

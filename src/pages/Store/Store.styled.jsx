@@ -4,6 +4,7 @@ export const StoreWrapper = styled.div`
   display: flex;
   @media screen and (max-width: 1280px) {
     flex-direction: column;
+    justify-content: center;
   }
 `;
 

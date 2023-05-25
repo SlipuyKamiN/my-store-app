@@ -10,6 +10,7 @@ import { useCreateOrderMutation } from 'redux/ordersSlice';
 import { clearShoppingCart } from 'redux/shoppingCartSlice';
 import { getShoppingCart } from 'redux/selectors';
 import { Info } from 'components/StorePage/ShopsList/ShopsList.styled';
+import { EmptyList } from 'components/ShoppingCart/ShoppingCartList/EmptyList';
 
 const ShoppingCart = () => {
   const [createOrder] = useCreateOrderMutation();
@@ -30,14 +31,21 @@ const ShoppingCart = () => {
 
   return (
     <ShoppingCartWrapper>
-      <Info>
-        We can deliver your order right to your home, please fill the form below
-      </Info>
+      {!isShoppingCartEmpty && (
+        <Info>
+          We can deliver your order right to your home, please fill the form
+          below
+        </Info>
+      )}
       <OrderForm
         isShoppingCartEmpty={isShoppingCartEmpty}
         onFormSubmit={handleCreateOrder}
       />
-      {!isShoppingCartEmpty && <ShoppingCartList />}
+      {isShoppingCartEmpty ? (
+        <EmptyList info="Oops, your cart is empty yet. Let's go shopping..." />
+      ) : (
+        <ShoppingCartList />
+      )}
       <TotalPriceWrapper>
         <TotalPrice>
           Total price: <span>{Math.round(totalPrice)} ₴</span>

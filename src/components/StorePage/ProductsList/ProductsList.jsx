@@ -1,16 +1,13 @@
 import { List, Loader } from './ProductsList.styled';
 import { ProductItem } from 'components/StorePage/ProductItem/ProductItem';
 import { useParams } from 'react-router-dom';
-import {
-  useGetAllProductsQuery,
-  useGetProductsByShopQuery,
-} from 'redux/productsSlice';
+import { useGetProductsByShopQuery } from 'redux/productsSlice';
 
 export const ProductsList = () => {
-  const { shopName } = useParams();
+  const { restaurantName } = useParams();
 
   const { data: burgers, isFetching } = useGetProductsByShopQuery(
-    shopName || 'all'
+    restaurantName || 'all'
   );
 
   return (

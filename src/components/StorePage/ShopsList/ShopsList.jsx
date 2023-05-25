@@ -13,18 +13,16 @@ export const ShopsList = () => {
   const shoppingCart = useSelector(getShoppingCart);
   const navigate = useNavigate();
 
-  console.log(shoppingCart);
-
-  // console.log(allShops);
-
   useEffect(() => {
     if (shoppingCart.length !== 0) {
-      const selectedShop = shoppingCart.find(
+      const selectedRestaurant = shoppingCart.find(
         ({ restaurant }) => restaurant
       ).restaurant;
 
-      navigate(`store/${selectedShop.replaceAll(' ', '-')}`, { replace: true });
-      setAvailableShops([selectedShop]);
+      navigate(`store/${selectedRestaurant.replaceAll(' ', '-')}`, {
+        replace: true,
+      });
+      setAvailableShops([selectedRestaurant]);
       return;
     }
 

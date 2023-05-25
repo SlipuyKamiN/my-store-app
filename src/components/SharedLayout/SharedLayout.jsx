@@ -9,6 +9,7 @@ import { BsShop, BsCart3, BsListColumns } from 'react-icons/bs';
 import { Outlet } from 'react-router-dom';
 import { Suspense } from 'react';
 import imgPath from 'images/storeLogo.png';
+import { Loader } from 'components/StorePage/ProductsList/ProductsList.styled';
 
 export const SharedLayout = () => {
   return (
@@ -16,7 +17,7 @@ export const SharedLayout = () => {
       <Header>
         <ImageLink to="/">
           <img src={imgPath} alt="main logo" width="50px" />
-          <span>My React Burger</span>
+          <span>My React Burgers</span>
         </ImageLink>
         <nav>
           <NavList>
@@ -41,7 +42,7 @@ export const SharedLayout = () => {
           </NavList>
         </nav>
       </Header>
-      <Suspense fallback={<div>Please wait...</div>}>
+      <Suspense fallback={<Loader size="25px" />}>
         <Outlet />
       </Suspense>
     </Container>

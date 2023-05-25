@@ -13,13 +13,17 @@ export const ShopsList = () => {
   const shoppingCart = useSelector(getShoppingCart);
   const navigate = useNavigate();
 
+  console.log(shoppingCart);
+
+  // console.log(allShops);
+
   useEffect(() => {
     if (shoppingCart.length !== 0) {
       const selectedShop = shoppingCart.find(
-        ({ category }) => category
-      ).category;
+        ({ restaurant }) => restaurant
+      ).restaurant;
 
-      navigate(`store/${selectedShop}`, { replace: true });
+      navigate(`store/${selectedShop.replaceAll(' ', '-')}`, { replace: true });
       setAvailableShops([selectedShop]);
       return;
     }
@@ -32,14 +36,14 @@ export const ShopsList = () => {
       <List>
         {availableShops.length > 1 && (
           <ListItem key="All">
-            <CategoryLink to={`store/allShops`}>All shops</CategoryLink>
+            <CategoryLink to={`store/all`}>All restaurants</CategoryLink>
           </ListItem>
         )}
         {!isFetching &&
-          availableShops.map(category => (
-            <ListItem key={category}>
-              <CategoryLink to={`store/${category}`}>
-                "{category}" shop
+          availableShops.map(restaurantName => (
+            <ListItem key={restaurantName}>
+              <CategoryLink to={`store/${restaurantName.replaceAll(' ', '-')}`}>
+                {restaurantName}
               </CategoryLink>
             </ListItem>
           ))}

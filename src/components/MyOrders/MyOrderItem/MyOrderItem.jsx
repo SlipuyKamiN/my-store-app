@@ -19,8 +19,12 @@ export const MyOrderItem = ({ order }) => {
       <ItemsList>
         {orderItems.map(orderItem => (
           <OrderItem key={orderItem.id}>
-            <ItemImage src={orderItem.image} alt={orderItem.title} />
-            <CardTitle>{orderItem.title}</CardTitle>
+            <ItemImage
+              src={orderItem.images[0].sm}
+              alt={orderItem.name}
+              width="100px"
+            />
+            <CardTitle>{orderItem.name}</CardTitle>
             <PurchaseWrapper>
               <CardPrice>Price: {orderItem.price} ₴</CardPrice>
               <CardPrice>Quantity: {orderItem.quantity} pcs.</CardPrice>

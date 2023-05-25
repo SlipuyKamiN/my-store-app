@@ -8,23 +8,18 @@ import {
 
 export const ProductsList = () => {
   const { shopName } = useParams();
-  const { data: allProducts, isFetching: isAllFetching } =
-    useGetAllProductsQuery();
-  const { data: categoryProducts, isFetching: isByShopFetching } =
-    useGetProductsByShopQuery(shopName);
 
-  const isFetching = isAllFetching || isByShopFetching;
-
-  const productsToRender =
-    shopName === 'allShops' || !shopName ? allProducts : categoryProducts;
+  const { data: burgers, isFetching } = useGetProductsByShopQuery(
+    shopName || 'all'
+  );
 
   return (
     <List>
       {isFetching ? (
         <Loader size="25px" />
       ) : (
-        productsToRender.map(product => {
-          return <ProductItem key={product.id} product={product} />;
+        burgers.map(burger => {
+          return <ProductItem key={burger.name} burger={burger} />;
         })
       )}
     </List>

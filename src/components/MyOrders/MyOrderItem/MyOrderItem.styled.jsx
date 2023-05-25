@@ -24,11 +24,6 @@ export const ItemsList = styled.ul`
 export const OrderItem = styled.li`
   position: relative;
   overflow: hidden;
-  width: 20%;
-
-  @media screen and (max-width: 1280px) {
-    width: 40%;
-  }
 
   &:hover div {
     cursor: pointer;

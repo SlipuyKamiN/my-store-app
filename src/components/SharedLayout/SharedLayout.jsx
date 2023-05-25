@@ -16,7 +16,7 @@ export const SharedLayout = () => {
       <Header>
         <ImageLink to="/">
           <img src={imgPath} alt="main logo" width="50px" />
-          <span>My React Store</span>
+          <span>My React Burger</span>
         </ImageLink>
         <nav>
           <NavList>

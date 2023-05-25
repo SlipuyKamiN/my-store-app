@@ -1,4 +1,4 @@
-# Welcome to the application documentation "My React Burgers" is a web application where you can order burgers from restaurants, according to your taste and in any quantity.
+# Welcome to the "My React Burgers" application documentation. It is a web application where you can order burgers from restaurants, according to your taste and in any quantity.
 
 On the initial screen of the application, you can see:
 - A header for navigating through the application's pages.

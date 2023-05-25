@@ -28,7 +28,7 @@ On the See my orders page, you can:
 - If your shopping history is empty - you can click on the shopping cart icon to
   go shopping.
 
-**Tech stack: React, JavaScript, Redux, RTK Query, HTML, CSS/SASS, Rest APIs,
+*Tech stack: React, JavaScript, Redux, RTK Query, HTML, CSS/SASS, Rest APIs,
 Responsive Web Design.
 
 **For developers, to continue working on the application, you only need:
@@ -70,7 +70,7 @@ Responsive Web Design.
 - Якщо Ваша історія покупок порожня - Ви можете натиснути на іконку корзини, щоб
   перейти до покупок.
 
-**Стек технологій: React, JavaScript, Redux, RTK Query, HTML, CSS/SASS, Rest APIs,
+*Стек технологій: React, JavaScript, Redux, RTK Query, HTML, CSS/SASS, Rest APIs,
 Responsive Web Design.
 
 **Для розробників, щоб продовжити роботу над застосунком потрібно тільки:

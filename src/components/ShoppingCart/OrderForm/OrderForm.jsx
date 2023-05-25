@@ -39,6 +39,10 @@ export const OrderForm = ({ isShoppingCartEmpty, onFormSubmit }) => {
         'Email may contain "@" and "." symbols'
       )
       .required(),
+    address: yup
+      .string()
+      .min(5, 'must be at least 5 characters long')
+      .required('Address is required field, example: street 7, city'),
   });
 
   const {
@@ -88,7 +92,7 @@ export const OrderForm = ({ isShoppingCartEmpty, onFormSubmit }) => {
           type="text"
           {...register('address')}
           id={addressID}
-          placeholder="street 8, City, Country"
+          placeholder="JavaStreet 8, City"
         />
         {errors.address && <ErrMessage>{errors.address.message}</ErrMessage>}
         <SubmitButton type="submit" disabled={isShoppingCartEmpty}>

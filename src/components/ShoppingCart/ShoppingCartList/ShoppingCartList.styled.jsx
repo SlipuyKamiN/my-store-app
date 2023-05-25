@@ -14,7 +14,7 @@ export const List = styled.ul`
   overflow-y: scroll;
 `;
 
-export const EmptyListWrapper = styled.div`
+export const EmptyListWrapper = styled.section`
   padding: 40px;
   margin: auto;
   text-align: center;

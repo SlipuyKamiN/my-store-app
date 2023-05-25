@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-export const StoreWrapper = styled.div`
+export const StoreWrapper = styled.section`
   display: flex;
   @media screen and (max-width: 1280px) {
     flex-direction: column;
@@ -8,7 +8,7 @@ export const StoreWrapper = styled.div`
   }
 `;
 
-export const SideBar = styled.div`
+export const SideBar = styled.aside`
   flex-shrink: 0;
   width: 260px;
   padding: 20px;

@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-export const MyOrdersWrapper = styled.div`
+export const MyOrdersWrapper = styled.section`
   display: flex;
   flex-wrap: wrap;
   @media screen and (max-width: 1280px) {

@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-export const ShoppingCartWrapper = styled.div`
+export const ShoppingCartWrapper = styled.section`
   display: flex;
   flex-wrap: wrap;
 
@@ -10,7 +10,7 @@ export const ShoppingCartWrapper = styled.div`
   }
 `;
 
-export const TotalPriceWrapper = styled.div`
+export const TotalPriceWrapper = styled.section`
   flex-shrink: 0;
   width: 100%;
   text-align: left;

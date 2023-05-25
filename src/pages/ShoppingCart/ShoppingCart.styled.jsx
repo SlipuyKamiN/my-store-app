@@ -6,11 +6,16 @@ export const ShoppingCartWrapper = styled.div`
 `;
 
 export const TotalPriceWrapper = styled.div`
+  flex-shrink: 0;
   width: 100%;
-  text-align: right;
+  text-align: left;
+  padding: 0 10px;
 `;
 
 export const TotalPrice = styled.p`
   font-size: 32px;
-  color: red;
+  color: var(--primary-white-color);
+  span {
+    color: #00d000;
+  }
 `;

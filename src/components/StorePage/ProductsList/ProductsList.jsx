@@ -1,4 +1,4 @@
-import { List } from './ProductsList.styled';
+import { List, Loader } from './ProductsList.styled';
 import { ProductItem } from 'components/StorePage/ProductItem/ProductItem';
 import { useParams } from 'react-router-dom';
 import {
@@ -20,11 +20,13 @@ export const ProductsList = () => {
 
   return (
     <List>
-      {isFetching
-        ? 'Loading'
-        : productsToRender.map(product => {
-            return <ProductItem key={product.id} product={product} />;
-          })}
+      {isFetching ? (
+        <Loader size="25px" />
+      ) : (
+        productsToRender.map(product => {
+          return <ProductItem key={product.id} product={product} />;
+        })
+      )}
     </List>
   );
 };

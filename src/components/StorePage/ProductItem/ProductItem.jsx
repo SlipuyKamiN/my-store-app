@@ -8,6 +8,7 @@ import {
   ProductCard,
   PurchaseWrapper,
 } from './ProductItem.styled';
+import { BsCartPlus, BsCartDash } from 'react-icons/bs';
 import { addProduct, deleteProduct } from 'redux/shoppingCartSlice';
 import { getShoppingCart } from 'redux/selectors';
 import { useEffect, useState } from 'react';
@@ -43,13 +44,24 @@ export const ProductItem = ({ product }) => {
       <CardTitle>{title}</CardTitle>
       <CardDescription>{description}</CardDescription>
       <PurchaseWrapper>
-        <CardPrice>Price: {Math.round(price)} ₴</CardPrice>
+        <span>
+          Price: <CardPrice>{Math.round(price)} ₴</CardPrice>
+        </span>
+
         <AddToCartButton
           onClick={() => {
             handleButtonClick(product);
           }}
         >
-          {isProductInCart ? 'Delete from my cart' : 'Add to my cart'}
+          {isProductInCart ? (
+            <>
+              Remove <BsCartDash />
+            </>
+          ) : (
+            <>
+              Add to cart <BsCartPlus />
+            </>
+          )}
         </AddToCartButton>
       </PurchaseWrapper>
     </ProductCard>

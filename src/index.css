@@ -1,10 +1,25 @@
 @import-normalize; /* bring in normalize.css styles */
 
+:root {
+  --background-color: #00002c;
+  --primary-white-color: #ffffff;
+  --brand-color: #61dbfb;
+}
+
 * {
   box-sizing: border-box;
 }
 
 body {
+  background: rgb(0, 97, 163);
+  background: radial-gradient(
+    circle,
+    rgba(0, 97, 163, 1) 0%,
+    rgba(0, 2, 32, 1) 80%
+  );
+  background-size: contain;
+  background-attachment: fixed;
+  color: var(--primary-white-color);
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -41,6 +56,12 @@ a {
   text-decoration: none;
   color: inherit;
   cursor: pointer;
+  transition: color 250ms linear;
+}
+
+a:hover,
+a:focus {
+  color: var(--brand-color);
 }
 /* Свойства для корректного отображения картинок */
 img {
@@ -60,4 +81,34 @@ html {
 
 button {
   cursor: pointer;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }

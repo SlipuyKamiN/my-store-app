@@ -1,55 +1,73 @@
 import styled from '@emotion/styled';
 
 export const ProductCard = styled.li`
+  width: 100%;
+  border: 1px solid var(--brand-color);
   border-radius: 15px;
-  padding: 15px;
-  border: 1px solid black;
   overflow: hidden;
-  margin-bottom: 10px;
   display: flex;
-  gap: 15px;
+  flex-wrap: wrap;
+  gap: 10;
+`;
+
+export const ItemsList = styled.ul`
+  display: flex;
+  padding: 20px;
+  gap: 20px;
 `;
 
 export const OrderItem = styled.li`
+  position: relative;
+  overflow: hidden;
   width: 20%;
+
+  &:hover div {
+    cursor: pointer;
+    transform: translateY(0%);
+  }
+`;
+
+export const ItemImage = styled.img`
+  border-radius: 15px;
+  width: 100px;
+  height: 100px;
 `;
 
 export const CardTitle = styled.h3`
-  font-size: 18px;
-  margin-bottom: 10px;
-`;
-
-export const CardDescription = styled.p`
-  font-size: 14px;
-  margin-bottom: 10px;
+  font-size: 12px;
+  width: 100px;
 `;
 
 export const PurchaseWrapper = styled.div`
+  position: absolute;
+  top: 0;
   display: flex;
-  justify-content: space-between;
-  align-self: flex-end;
+  flex-wrap: wrap;
   align-items: center;
+  width: 100px;
+  padding: 15px;
+  border-radius: 15px;
+  font-size: 16px;
+  background-color: #000000cc;
+  transform: translateY(-100%);
+  transition: transform 250ms linear;
 `;
 
 export const CardPrice = styled.p`
-  font-size: 20px;
-  color: green;
+  color: #00d000;
 `;
 
-export const AddToCartButton = styled.button`
-  border-radius: 15px;
-  padding: 15px;
-  font-size: 20px;
-  text-align: center;
+export const DateWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 20px;
+  font-size: 24px;
 `;
 
-export const ChangeQuantityButton = styled.button`
-  border-radius: 50%;
-  font-size: 20px;
-  text-align: center;
-`;
-
-export const QuantityCounter = styled.p`
-  font-size: 18px;
-  color: red;
+export const OrderTotalPrice = styled.p`
+  font-size: 32px;
+  color: #00d000;
+  text-align: right;
 `;

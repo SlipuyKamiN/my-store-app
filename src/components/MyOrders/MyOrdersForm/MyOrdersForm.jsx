@@ -9,6 +9,7 @@ import { nanoid } from 'nanoid';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
+import { SideBar } from 'pages/Store/Store.styled';
 
 export const MyOrdersForm = ({ onFormSubmit }) => {
   const numberID = nanoid();
@@ -38,20 +39,22 @@ export const MyOrdersForm = ({ onFormSubmit }) => {
   });
 
   return (
-    <AppForm
-      autoComplete="off"
-      onSubmit={handleSubmit(data => {
-        reset({ number: '', email: '' });
-        onFormSubmit(data);
-      })}
-    >
-      <FormInputLabel htmlFor={numberID}>Number</FormInputLabel>
-      <FormInput type="text" {...register('number')} id={numberID} />
-      {errors.number && <ErrMessage>{errors.number.message}</ErrMessage>}
-      <FormInputLabel htmlFor={emailID}>email</FormInputLabel>
-      <FormInput type="text" {...register('email')} id={emailID} />
-      {errors.email && <ErrMessage>{errors.email.message}</ErrMessage>}
-      <SubmitButton type="submit">'Submit'</SubmitButton>
-    </AppForm>
+    <SideBar>
+      <AppForm
+        autoComplete="off"
+        onSubmit={handleSubmit(data => {
+          reset({ number: '', email: '' });
+          onFormSubmit(data);
+        })}
+      >
+        <FormInputLabel htmlFor={numberID}>Number</FormInputLabel>
+        <FormInput type="text" {...register('number')} id={numberID} />
+        {errors.number && <ErrMessage>{errors.number.message}</ErrMessage>}
+        <FormInputLabel htmlFor={emailID}>email</FormInputLabel>
+        <FormInput type="text" {...register('email')} id={emailID} />
+        {errors.email && <ErrMessage>{errors.email.message}</ErrMessage>}
+        <SubmitButton type="submit">Submit</SubmitButton>
+      </AppForm>
+    </SideBar>
   );
 };

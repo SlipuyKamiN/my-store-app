@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 export const Container = styled.div`
   max-width: 480px;
@@ -26,25 +26,52 @@ export const Header = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 10px;
   gap: 20px;
   width: 100%;
-  /* position: fixed; */
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid var(--primary-white-color);
 `;
 
-export const ImageLogo = styled.img`
-  width: 50px;
+export const ImageLink = styled(Link)`
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  height: 50px;
+  gap: 10px;
+  font-size: 24px;
+  &:hover,
+  &:focus {
+    color: var(--brand-color);
+  }
+  img {
+    flex-shrink: 0;
+    animation: rotation 10s infinite linear;
+  }
+
+  @media screen and (max-width: 768px) {
+    span {
+      display: none;
+    }
+  }
 `;
 
 export const NavList = styled.ul`
   display: flex;
-  gap: 10px;
+  gap: 20px;
+  @media screen and (max-width: 768px) {
+    font-size: 12px;
+  }
 `;
 
 export const NavigationLink = styled(NavLink)`
   text-decoration: none;
+  padding: 10px 0;
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
 
   &.active {
-    border-bottom: 1px solid red;
+    color: var(--brand-color);
+    border-bottom: 3px solid var(--brand-color);
   }
 `;

@@ -1,31 +1,31 @@
 import { useDispatch } from 'react-redux';
-import { Counter, ChangeQuantityButton } from './QuantityCounter.styled';
+import {
+  Counter,
+  ChangeQuantityButton,
+  CounterWrapper,
+} from './QuantityCounter.styled';
+import { BsCartPlus, BsCartDash } from 'react-icons/bs';
+
 import { changeQuantity } from 'redux/shoppingCartSlice';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export const QuantityCounter = ({ id, quantity }) => {
   const [counterValue, setCounterValue] = useState(quantity);
-  const isFirstRender = useRef(true);
   const dispatch = useDispatch();
   const isProductOneInCart = counterValue === 1;
 
   useEffect(() => {
-    if (isFirstRender) {
-      isFirstRender.current = false;
-      return;
-    }
-
     dispatch(changeQuantity(id, counterValue));
   }, [counterValue, dispatch, id]);
 
   return (
-    <>
+    <CounterWrapper>
       <ChangeQuantityButton
         onClick={() => {
           setCounterValue(counterValue + 1);
         }}
       >
-        +
+        <BsCartPlus />
       </ChangeQuantityButton>
       <Counter>{counterValue}</Counter>
       <ChangeQuantityButton
@@ -34,8 +34,8 @@ export const QuantityCounter = ({ id, quantity }) => {
         }}
         disabled={isProductOneInCart}
       >
-        -
+        <BsCartDash />
       </ChangeQuantityButton>
-    </>
+    </CounterWrapper>
   );
 };

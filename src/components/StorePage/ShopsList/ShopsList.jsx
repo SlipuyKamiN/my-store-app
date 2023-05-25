@@ -1,10 +1,11 @@
 import { useGetShopsQuery } from 'redux/productsSlice';
-import { CategoryLink, List, ListItem } from './ShopsList.styled';
+import { CategoryLink, Info, List, ListItem } from './ShopsList.styled';
 import { useSelector } from 'react-redux';
 
 import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { getShoppingCart } from 'redux/selectors';
+import { SideBar } from 'pages/Store/Store.styled';
 
 export const ShopsList = () => {
   const { data: allShops, isFetching } = useGetShopsQuery();
@@ -27,25 +28,27 @@ export const ShopsList = () => {
   }, [setAvailableShops, navigate, shoppingCart, allShops]);
 
   return (
-    <List>
-      {availableShops.length > 1 && (
-        <ListItem key="All">
-          <CategoryLink to={`store/allShops`}>All shops</CategoryLink>
-        </ListItem>
-      )}
-      {!isFetching &&
-        availableShops.map(category => (
-          <ListItem key={category}>
-            <CategoryLink to={`store/${category}`}>
-              "{category}" STORE
-            </CategoryLink>
+    <SideBar>
+      <List>
+        {availableShops.length > 1 && (
+          <ListItem key="All">
+            <CategoryLink to={`store/allShops`}>All shops</CategoryLink>
           </ListItem>
-        ))}
+        )}
+        {!isFetching &&
+          availableShops.map(category => (
+            <ListItem key={category}>
+              <CategoryLink to={`store/${category}`}>
+                "{category}" shop
+              </CategoryLink>
+            </ListItem>
+          ))}
+      </List>
       {availableShops.length === 1 && (
-        <ListItem key="warn">
-          You can buy products only from one shop at the same time.
-        </ListItem>
+        <Info>
+          You can buy products only from the one shop at the same time.
+        </Info>
       )}
-    </List>
+    </SideBar>
   );
 };

@@ -9,6 +9,7 @@ import { nanoid } from 'nanoid';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
+import { SideBar } from 'pages/Store/Store.styled';
 
 export const OrderForm = ({ isShoppingCartEmpty, onFormSubmit }) => {
   const nameID = nanoid();
@@ -47,28 +48,50 @@ export const OrderForm = ({ isShoppingCartEmpty, onFormSubmit }) => {
   });
 
   return (
-    <AppForm
-      autoComplete="off"
-      onSubmit={handleSubmit(data => {
-        reset({ name: '', number: '', address: '', email: '' });
-        onFormSubmit(data);
-      })}
-    >
-      <FormInputLabel htmlFor={nameID}>Name</FormInputLabel>
-      <FormInput type="text" {...register('name')} id={nameID} />
-      {errors.name && <ErrMessage>{errors.name.message}</ErrMessage>}
-      <FormInputLabel htmlFor={numberID}>Number</FormInputLabel>
-      <FormInput type="text" {...register('number')} id={numberID} />
-      {errors.number && <ErrMessage>{errors.number.message}</ErrMessage>}
-      <FormInputLabel htmlFor={emailID}>email</FormInputLabel>
-      <FormInput type="text" {...register('email')} id={emailID} />
-      {errors.email && <ErrMessage>{errors.email.message}</ErrMessage>}
-      <FormInputLabel htmlFor={addressID}>address</FormInputLabel>
-      <FormInput type="text" {...register('address')} id={addressID} />
-      {errors.address && <ErrMessage>{errors.address.message}</ErrMessage>}
-      <SubmitButton type="submit" disabled={isShoppingCartEmpty}>
-        'Submit'
-      </SubmitButton>
-    </AppForm>
+    <SideBar>
+      <AppForm
+        autoComplete="off"
+        onSubmit={handleSubmit(data => {
+          reset({ name: '', number: '', address: '', email: '' });
+          onFormSubmit(data);
+        })}
+      >
+        <FormInputLabel htmlFor={nameID}>Name</FormInputLabel>
+        <FormInput
+          type="text"
+          {...register('name')}
+          id={nameID}
+          placeholder="Name Surname"
+        />
+        {errors.name && <ErrMessage>{errors.name.message}</ErrMessage>}
+        <FormInputLabel htmlFor={numberID}>Number</FormInputLabel>
+        <FormInput
+          type="text"
+          {...register('number')}
+          id={numberID}
+          placeholder="0800500609"
+        />
+        {errors.number && <ErrMessage>{errors.number.message}</ErrMessage>}
+        <FormInputLabel htmlFor={emailID}>email</FormInputLabel>
+        <FormInput
+          type="text"
+          {...register('email')}
+          id={emailID}
+          placeholder="email@e.mail"
+        />
+        {errors.email && <ErrMessage>{errors.email.message}</ErrMessage>}
+        <FormInputLabel htmlFor={addressID}>address</FormInputLabel>
+        <FormInput
+          type="text"
+          {...register('address')}
+          id={addressID}
+          placeholder="street 8, City, Country"
+        />
+        {errors.address && <ErrMessage>{errors.address.message}</ErrMessage>}
+        <SubmitButton type="submit" disabled={isShoppingCartEmpty}>
+          Submit
+        </SubmitButton>
+      </AppForm>
+    </SideBar>
   );
 };

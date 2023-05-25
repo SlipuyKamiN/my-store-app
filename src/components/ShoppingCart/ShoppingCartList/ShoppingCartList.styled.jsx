@@ -8,6 +8,6 @@ export const List = styled.ul`
   gap: 15px;
   flex-wrap: wrap;
   height: 80vh;
-  max-width: 70%;
+  width: 77%;
   overflow-y: scroll;
 `;

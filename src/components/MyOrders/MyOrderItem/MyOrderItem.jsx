@@ -1,20 +1,25 @@
 import {
   CardPrice,
   CardTitle,
+  ItemImage,
+  ItemsList,
   OrderItem,
   ProductCard,
   PurchaseWrapper,
+  OrderTotalPrice,
+  DateWrapper,
 } from './MyOrderItem.styled';
 
 export const MyOrderItem = ({ order }) => {
-  const { orderItems, totalPrice } = order;
+  const { orderItems, totalPrice, createdAt } = order;
+  const date = new Date(createdAt);
 
   return (
     <ProductCard>
-      <ul>
+      <ItemsList>
         {orderItems.map(orderItem => (
           <OrderItem key={orderItem.id}>
-            <img src={orderItem.image} alt={orderItem.title} width="100px" />
+            <ItemImage src={orderItem.image} alt={orderItem.title} />
             <CardTitle>{orderItem.title}</CardTitle>
             <PurchaseWrapper>
               <CardPrice>Price: {orderItem.price} ₴</CardPrice>
@@ -22,8 +27,13 @@ export const MyOrderItem = ({ order }) => {
             </PurchaseWrapper>
           </OrderItem>
         ))}
-      </ul>
-      <p>{totalPrice}</p>
+      </ItemsList>
+      <DateWrapper>
+        <p>{date.toLocaleDateString()}</p>
+        <p>
+          Total order price: <OrderTotalPrice>{totalPrice}₴</OrderTotalPrice>
+        </p>
+      </DateWrapper>
     </ProductCard>
   );
 };

@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useCreateOrderMutation } from 'redux/ordersSlice';
 import { clearShoppingCart } from 'redux/shoppingCartSlice';
 import { getShoppingCart } from 'redux/selectors';
+import { Info } from 'components/StorePage/ShopsList/ShopsList.styled';
 
 const ShoppingCart = () => {
   const [createOrder] = useCreateOrderMutation();
@@ -29,13 +30,18 @@ const ShoppingCart = () => {
 
   return (
     <ShoppingCartWrapper>
+      <Info>
+        We can deliver your order right to your home, please fill the form below
+      </Info>
       <OrderForm
         isShoppingCartEmpty={isShoppingCartEmpty}
         onFormSubmit={handleCreateOrder}
       />
       {!isShoppingCartEmpty && <ShoppingCartList />}
       <TotalPriceWrapper>
-        <TotalPrice>Total price: {Math.round(totalPrice)} ₴</TotalPrice>
+        <TotalPrice>
+          Total price: <span>{Math.round(totalPrice)} ₴</span>
+        </TotalPrice>
       </TotalPriceWrapper>
     </ShoppingCartWrapper>
   );

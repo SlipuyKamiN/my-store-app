@@ -69,6 +69,7 @@ export const NavigationLink = styled(NavLink)`
   display: flex;
   align-items: flex-end;
   gap: 10px;
+  border-bottom: 3px solid transparent;
 
   &.active {
     color: var(--brand-color);

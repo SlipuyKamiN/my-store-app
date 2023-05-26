@@ -1,21 +1,21 @@
 {
   "files": {
     "main.css": "/my-store-app/static/css/main.e9b637d9.css",
-    "main.js": "/my-store-app/static/js/main.1c0fbd54.js",
-    "static/js/895.0984298a.chunk.js": "/my-store-app/static/js/895.0984298a.chunk.js",
-    "static/js/451.0482a840.chunk.js": "/my-store-app/static/js/451.0482a840.chunk.js",
-    "static/js/914.0b5d7ec7.chunk.js": "/my-store-app/static/js/914.0b5d7ec7.chunk.js",
+    "main.js": "/my-store-app/static/js/main.df7610e4.js",
+    "static/js/895.da6e0dc6.chunk.js": "/my-store-app/static/js/895.da6e0dc6.chunk.js",
+    "static/js/451.bdd1f31e.chunk.js": "/my-store-app/static/js/451.bdd1f31e.chunk.js",
+    "static/js/914.7ebba335.chunk.js": "/my-store-app/static/js/914.7ebba335.chunk.js",
     "static/js/487.58ec1ada.chunk.js": "/my-store-app/static/js/487.58ec1ada.chunk.js",
     "index.html": "/my-store-app/index.html",
     "main.e9b637d9.css.map": "/my-store-app/static/css/main.e9b637d9.css.map",
-    "main.1c0fbd54.js.map": "/my-store-app/static/js/main.1c0fbd54.js.map",
-    "895.0984298a.chunk.js.map": "/my-store-app/static/js/895.0984298a.chunk.js.map",
-    "451.0482a840.chunk.js.map": "/my-store-app/static/js/451.0482a840.chunk.js.map",
-    "914.0b5d7ec7.chunk.js.map": "/my-store-app/static/js/914.0b5d7ec7.chunk.js.map",
+    "main.df7610e4.js.map": "/my-store-app/static/js/main.df7610e4.js.map",
+    "895.da6e0dc6.chunk.js.map": "/my-store-app/static/js/895.da6e0dc6.chunk.js.map",
+    "451.bdd1f31e.chunk.js.map": "/my-store-app/static/js/451.bdd1f31e.chunk.js.map",
+    "914.7ebba335.chunk.js.map": "/my-store-app/static/js/914.7ebba335.chunk.js.map",
     "487.58ec1ada.chunk.js.map": "/my-store-app/static/js/487.58ec1ada.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e9b637d9.css",
-    "static/js/main.1c0fbd54.js"
+    "static/js/main.df7610e4.js"
   ]
 }

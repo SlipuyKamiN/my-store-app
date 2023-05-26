@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-export const ShoppingCartWrapper = styled.section`
+export const ShoppingCartWrapper = styled.main`
   display: flex;
   flex-wrap: wrap;
 

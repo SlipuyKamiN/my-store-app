@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-export const StoreWrapper = styled.section`
+export const StoreWrapper = styled.main`
   display: flex;
   @media screen and (max-width: 1280px) {
     flex-direction: column;

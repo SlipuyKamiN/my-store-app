@@ -14,7 +14,7 @@ export const TotalPriceWrapper = styled.section`
   flex-shrink: 0;
   width: 100%;
   text-align: left;
-  padding: 0 10px;
+  padding: 20px;
 `;
 
 export const TotalPrice = styled.p`

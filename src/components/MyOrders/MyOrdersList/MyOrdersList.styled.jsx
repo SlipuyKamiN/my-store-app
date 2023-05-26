@@ -6,7 +6,7 @@ export const List = styled.ul`
   padding: 20px;
   gap: 15px;
   flex-wrap: wrap;
-  height: 80vh;
+  max-height: 80vh;
   max-width: 77%;
   overflow-y: scroll;
 `;

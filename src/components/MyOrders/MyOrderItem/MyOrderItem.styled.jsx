@@ -4,6 +4,7 @@ export const ProductCard = styled.li`
   width: 100%;
   border: 1px solid var(--brand-color);
   border-radius: 15px;
+  padding: 15px;
   overflow: hidden;
   display: flex;
   flex-wrap: wrap;
@@ -12,7 +13,6 @@ export const ProductCard = styled.li`
 
 export const ItemsList = styled.ul`
   display: flex;
-  padding: 20px;
   gap: 20px;
   @media screen and (max-width: 1280px) {
     /* flex-direction: column; */
@@ -66,10 +66,10 @@ export const DateWrapper = styled.div`
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  padding: 20px;
+  gap: 10px;
   font-size: 24px;
   @media screen and (max-width: 1280px) {
-    font-size: 16px;
+    font-size: 14px;
   }
 `;
 

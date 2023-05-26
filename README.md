@@ -1,4 +1,4 @@
-# Welcome to the "My React Burgers" application documentation. It is a web application where you can order burgers from restaurants, according to your taste and in any quantity.
+# Welcome to the "My React Burgers" application documentation. It is a web application with responsive design, adopted for mobile/tablet/desktop where you can order burgers from restaurants, according to your taste and in any quantity.
 
 On the initial screen of the application, you can see:
 
@@ -28,10 +28,10 @@ On the See my orders page, you can:
 - If your shopping history is empty - you can click on the shopping cart icon to
   go shopping.
 
-*Tech stack: React, JavaScript, Redux, RTK Query, HTML, CSS/SASS, Rest APIs,
+\*Tech stack: React, JavaScript, Redux, RTK Query, HTML, CSS/SASS, Rest APIs,
 Responsive Web Design.
 
-**For developers, to continue working on the application, you only need:
+\*\*For developers, to continue working on the application, you only need:
 
 - clone the repository to your PC
 - in the terminal, first, run the " npm i " command
@@ -40,7 +40,7 @@ Responsive Web Design.
 
 ---
 
-# Ласкаво просимо, до сторінки застосунку "My React Burgers" - це веб-застосунок, в якому Ви можете замовити бургери з ресторанів, на Ваш смак та в будь-якій кількості.
+# Ласкаво просимо, до сторінки застосунку "My React Burgers" - це веб-застосунок адаптований під смартфон/планшет/десктоп, в якому Ви можете замовити бургери з ресторанів, на Ваш смак та в будь-якій кількості.
 
 На початковому екрані застосунку Ви можете побачити:
 
@@ -70,10 +70,10 @@ Responsive Web Design.
 - Якщо Ваша історія покупок порожня - Ви можете натиснути на іконку корзини, щоб
   перейти до покупок.
 
-*Стек технологій: React, JavaScript, Redux, RTK Query, HTML, CSS/SASS, Rest APIs,
-Responsive Web Design.
+\*Стек технологій: React, JavaScript, Redux, RTK Query, HTML, CSS/SASS, Rest
+APIs, Responsive Web Design.
 
-**Для розробників, щоб продовжити роботу над застосунком потрібно тільки:
+\*\*Для розробників, щоб продовжити роботу над застосунком потрібно тільки:
 
 - склонувати репозиторій на свій ПК
 - в терміналі запустити спочатку команду npm i

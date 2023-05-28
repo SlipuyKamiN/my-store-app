@@ -1,4 +1,5 @@
 import { useDispatch } from 'react-redux';
+import PropTypes from 'prop-types';
 import {
   AddToCartButton,
   CardDescription,
@@ -39,4 +40,8 @@ export const ShoppingCartItem = ({ burger }) => {
       </PurchaseWrapper>
     </ProductCard>
   );
+};
+
+ShoppingCartItem.propTypes = {
+  burger: PropTypes.object.isRequired,
 };

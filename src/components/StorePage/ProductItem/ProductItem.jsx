@@ -1,4 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
+import PropTypes from 'prop-types';
 import {
   AddToCartButton,
   CardImage,
@@ -65,4 +66,8 @@ export const ProductItem = ({ burger }) => {
       </PurchaseWrapper>
     </ProductCard>
   );
+};
+
+ProductItem.propTypes = {
+  burger: PropTypes.object.isRequired,
 };

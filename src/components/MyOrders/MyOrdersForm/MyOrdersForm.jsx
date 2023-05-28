@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import {
   AppForm,
   FormInput,
@@ -54,4 +55,8 @@ export const MyOrdersForm = ({ onFormSubmit }) => {
       <SubmitButton type="submit">Submit</SubmitButton>
     </AppForm>
   );
+};
+
+MyOrdersForm.propTypes = {
+  onFormSubmit: PropTypes.func.isRequired,
 };

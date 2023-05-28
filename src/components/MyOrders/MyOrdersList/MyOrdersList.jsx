@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { List } from './MyOrdersList.styled';
 import { MyOrderItem } from 'components/MyOrders/MyOrderItem/MyOrderItem';
 
@@ -9,4 +10,8 @@ export const MyOrdersList = ({ ordersList }) => {
       ))}
     </List>
   );
+};
+
+MyOrdersList.propTypes = {
+  ordersList: PropTypes.array.isRequired,
 };

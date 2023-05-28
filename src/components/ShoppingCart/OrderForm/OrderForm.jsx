@@ -5,6 +5,7 @@ import {
   SubmitButton,
   ErrMessage,
 } from './OrderForm.styled';
+import PropTypes from 'prop-types';
 import { nanoid } from 'nanoid';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -101,4 +102,9 @@ export const OrderForm = ({ isShoppingCartEmpty, onFormSubmit }) => {
       </AppForm>
     </SideBar>
   );
+};
+
+OrderForm.propTypes = {
+  isShoppingCartEmpty: PropTypes.bool.isRequired,
+  onFormSubmit: PropTypes.func.isRequired,
 };

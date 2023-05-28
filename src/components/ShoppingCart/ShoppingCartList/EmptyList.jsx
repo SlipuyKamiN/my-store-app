@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { BsCartPlus } from 'react-icons/bs';
 import {
   EmptyInfo,
@@ -14,4 +15,8 @@ export const EmptyList = ({ info }) => {
       <EmptyInfo>{info}</EmptyInfo>
     </EmptyListWrapper>
   );
+};
+
+EmptyList.propTypes = {
+  info: PropTypes.string.isRequired,
 };

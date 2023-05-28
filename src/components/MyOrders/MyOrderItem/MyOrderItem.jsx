@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import {
   CardPrice,
   CardTitle,
@@ -40,4 +41,8 @@ export const MyOrderItem = ({ order }) => {
       </DateWrapper>
     </ProductCard>
   );
+};
+
+MyOrderItem.propTypes = {
+  order: PropTypes.object.isRequired,
 };
